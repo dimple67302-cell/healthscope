@@ -24,7 +24,10 @@ export default function HomePage() {
   const [budget, setBudget] = useState("");
   const [error, setError] = useState("");
 
+  console.log(location);
+  
   const suggestions = useMemo(() => {
+    
     if (!location.trim()) return SUPPORTED_CITIES;
     return SUPPORTED_CITIES.filter((c) =>
       c.toLowerCase().startsWith(location.trim().toLowerCase())
@@ -84,6 +87,7 @@ export default function HomePage() {
           {showSuggestions && suggestions.length > 0 && (
             <ul className="absolute z-10 mt-1 w-full rounded-lg border border-brand-100 bg-white shadow-lg">
               {suggestions.map((c) => (
+                
                 <li key={c}>
                   <button
                     type="button"
@@ -140,7 +144,7 @@ export default function HomePage() {
           onClick={handleFindHospitals}
           className="mt-6 w-full rounded-lg bg-brand-500 py-3 font-semibold text-white transition hover:bg-brand-600"
         >
-          Find Hospitals
+          Find Hospitals 
         </button>
 
         <p className="mt-3 text-center text-xs text-brand-700/60">
